@@ -1,0 +1,20 @@
+<html>
+    <body>
+      <h1> hai cantikkkkkkk </h1>
+      <img src="https://64.media.tumblr.com/52720bd071410069a2c7bee4b3797143/tumblr_oxbmydUaja1vvfsp9o2_r1_400.gifv">
+      <h1> mau ga jadi pacarku???? </h1>
+
+      <button id='btn_mau' onclick='alert("i love u")'>mau </button>
+      <button id='btn_gamau' onclick='gamau(this)'
+        style='position:absolute'>Gamau </button>
+    </body>
+    <script>
+        function gamau(id){
+          var mau = document.getElementById('btn_mau');
+          var i = Math.floor(Math.random()*300)+1;
+          var j = Math.floor(Math.random()*100)+mau.offsetTop;
+          id.style.left = i+'px';
+          id.style.top = j+'px';
+        }
+    </script>
+</html>
