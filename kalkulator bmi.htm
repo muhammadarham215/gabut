@@ -1,0 +1,46 @@
+<html>
+tinggi <input type=number id='tinggi' /> <br />
+berat <input type=number id='berat' /> <br />
+jenis kelamin
+<input type=radio name='jeniskelamin' value='p'> pria
+<input type=radio name='jeniskelamin' value='w'> wanita
+<input type=button value='hitung bmi' onclick='hitung()' />
+<label id='hasil' />
+
+<script>
+var pria = [
+	[0,18,"kurus, hmm kalo bisa perbanyak porsi makanannya"],
+		[18,25,"normal, niceee keep it up"],
+		[25,27,"gemuk, bisa yu program diet (kalo mau)"],
+		[27,9999,"obesitas, HAHAHAHAH U BETTER GET SOME DIET"],
+];
+
+var wanita = [
+	[0,17,"kurus, hmm kalo bisa perbanyak porsi makanannya"],
+		[17,23,"normal, niceee keep it up"],
+		[23,27,"gemuk, bisa yu program diet (kalo mau)"],
+		[27,9999,"obesitas, HAHAHAHAH U BETTER GET SOME DIET"],
+];
+
+
+function hitung() {
+	var tinggi = document.getElementById('tinggi').value;
+	var berat = document.getElementById('berat').value;
+	var hasil = document.getElementById('hasil');
+	var jeniskelamin = document.getElementsByName('jeniskelamin');
+
+	jeniskelamin.forEach( function (jk) {
+		jeniskelamin = jk.checked ? jk.value : jeniskelamin;
+		});
+
+	var bmi = berat/Math.pow(tinggi/100,2);
+	bmi = bmi.toFixed(2);
+	var kategori = jeniskelamin == 'p' ? pria : wanita;
+	kategori.forEach (function (kat) {
+		if (bmi>kat[0] && bmi<kat[1]) {
+		hasil.innerHTML = bmi+' ('+kat[2]+')';
+		}
+		});
+}
+</script>
+</html>
